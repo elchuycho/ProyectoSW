@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "927bd59f-da6f-4185-aaf0-62986a364875",
+		"name": "proyectoSW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/admin/courses/all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fotostitle1",
+							"value": "titlw nuevon",
+							"type": "text"
+						},
+						{
+							"key": "fotosalbum1",
+							"value": "album nuevo",
+							"type": "text"
+						},
+						{
+							"key": "fotosurl1",
+							"value": "url nuevo",
+							"type": "text"
+						},
+						{
+							"key": "fotosthumbnail1",
+							"value": "thumbnail nuevo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/admin/courses/all",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"admin",
+						"courses",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/admin/courses/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/admin/courses/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"admin",
+						"courses",
+						"1"
+					]
+				},
+				"description": "Ver productos por id"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/admin/courses/new",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productostitle1",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "productosalbum1",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "productosupd11",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "productosupd21",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/admin/courses/new",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"admin",
+						"courses",
+						"new"
+					]
+				},
+				"description": "agregar cursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/admin/courses/upd/:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productosupd11",
+							"value": "222",
+							"type": "text"
+						},
+						{
+							"key": "productosupd21",
+							"value": "2222",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/admin/courses/upd/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"admin",
+						"courses",
+						"upd",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				},
+				"description": "update los productosupd1 y productos upd2"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/admin/courses/del/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/admin/courses/del/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"admin",
+						"courses",
+						"del",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				},
+				"description": "Delete productos por id"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
