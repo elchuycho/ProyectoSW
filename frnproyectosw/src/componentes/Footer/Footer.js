@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+/*import React, {Component} from 'react';
 import {IoIosLogIn, IoIosHome, IoIosFolder} from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
 import './Footer.css';
@@ -77,3 +77,23 @@ destruye
 
 
  */
+
+
+
+
+import React, { Component } from 'react';
+
+
+export default class Footer extends Component{
+    render(){
+        return(
+            <footer>
+                <div className="rights">   
+                    <span>&copy; Katabu</span>
+                    <span>&reg; Todos los Derechos Reservados </span>
+                </div>
+            </footer>
+        );
+    
+    }
+}
