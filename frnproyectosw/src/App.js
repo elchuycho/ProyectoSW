@@ -16,6 +16,9 @@ import Sobre from './componentes/Pages/Public/Sobre/Sobre';
 import CreateCourse from './componentes/Pages/Private/Admin/Courses/Create';
 import UpdateCourse from './componentes/Pages/Private/Admin/Courses/Update';
 import DeleteCourse from './componentes/Pages/Private/Admin/Courses/Delete';
+import AddPayment from './componentes/Pages/Private/Admin/Payment/AddPayment';
+import UpdatePayment from './componentes/Pages/Private/Admin/Payment/UpdatePayment';
+import DeletePayment from './componentes/Pages/Private/Admin/Payment/DeletePayment';
 
 /*function App() {
   return (
@@ -106,6 +109,9 @@ class App extends Component{
           <PrivateRoute component={CreateCourse} path="/create" exact auth={auth}/>
           <PrivateRoute component={UpdateCourse} path="/update:id" exact auth={auth}/>
           <PrivateRoute component={DeleteCourse} path="/delete:id" exact auth={auth}/>
+          <PrivateRoute component={AddPayment} path="/addpayment" exact auth={auth}/>
+          <PrivateRoute component={UpdatePayment} path="/updatepayment:id" exact auth={auth}/>
+          <PrivateRoute component={DeletePayment} path="/deletepayment:id" exact auth={auth}/>
         </Switch>
       </Router>
       );  
