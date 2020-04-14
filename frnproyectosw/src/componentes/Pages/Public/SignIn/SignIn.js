@@ -3,7 +3,7 @@ import Page from '../../Page';
 import Field from '../../../Forms/Fields/Field';
 import { Actions } from '../../../Forms/Buttons/Button';
 import { emailRegex, emptyRegex } from '../../../Forms/Validators/Validators';
-
+import { Link } from 'react-router-dom'; 
 import {paxios} from '../../../Utilities/Utilities';
 export default class Login extends Component {
   /*
@@ -125,8 +125,7 @@ export default class Login extends Component {
           error={this.state.passwordError}
         />
         <Actions>
-          <button onClick={this.onClickCreateAccount}>Crear Cuenta</button>
-          <button onClick={this.onClickLogin}>Iniciar Sesión</button>
+          <button><Link to="/login">Iniciar Sesión</Link></button>
         </Actions>
       </Page>
     );

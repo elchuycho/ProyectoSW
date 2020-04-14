@@ -20,7 +20,7 @@ export default ( {children, title, login} )=>{
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom'; 
 import {IoIosSettings,IoIosCloseCircleOutline,IoMdLogOut} from 'react-icons/io';
-//import img from './logoLearningBasics.png';
+import img from './ejemplo.jpg';
 import {getLocalStorage} from '../Utilities/Utilities';
 import { saxios,paxios } from '../Utilities/Utilities';
 export default class Header extends Component{
@@ -69,7 +69,7 @@ export default class Header extends Component{
             return(
                 <header className="col-s-12">
                 <div className="title col-s-7 col-m-5 col-12 no-margin no-padding">
-                    
+                <Link to="/"><img src={img} alt="Logo Katabu" width="200"/></Link>
                 </div>
                 <div onClick={ ()=>{this.setState({open: !shown})}} className={displaying ? "hide":"burger"} id="hmb">
                     <div></div>
@@ -97,7 +97,8 @@ export default class Header extends Component{
             return(   
             <header className="col-s-12">
                 <div className="title col-s-7 col-m-5 col-12 no-margin no-padding">
-                    
+                <Link to="/"><img src={img} alt="Katabu" width="200"/></Link>
+                
                 </div>
                 <div onClick={ ()=>{this.setState({open: !shown})}} className="burger" id="hmb">
                     <div></div>
@@ -105,9 +106,11 @@ export default class Header extends Component{
                     <div></div>
                 </div>     
                 <ul className={ shown ? "nav-links open col-s-12 col-m-5 col-5 col-l-4 no-margin center": "nav-links col-s-12 col-m-5 col-5 col-l-4 no-margin center" }>
+                    <li><Link to="/">Home</Link></li>
                     <li><Link to="/courses">Cursos</Link></li>
                     <li><Link to="/subscription">Subscripciones</Link></li>
                     <li><Link to="/login">Inicia Sesión</Link></li>
+                    <li><Link to="/sobre">Sobre Nosotros</Link></li>
                 </ul>
             </header>
             );       

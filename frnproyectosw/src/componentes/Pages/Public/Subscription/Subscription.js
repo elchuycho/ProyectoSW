@@ -19,7 +19,7 @@ export default class Subs extends Component {
               <br></br>
               <br/>
               <div className="prices"><h3 className="discount orange">$ 5.99</h3></div>
-              <Link className="button-3 center" to="/register/1" price="5.99">Registrarme</Link>
+              <Link className="button-3 center" to="/register" price="5.99">Registrarme</Link>
             </div>
             <div className="card col-s-12 center">
               <h1>Trimestral</h1>
@@ -30,7 +30,7 @@ export default class Subs extends Component {
               <div className="prices">
                 <span>$ 20.00</span> <h3 className="discount orange">$ 14.99</h3>
               </div>
-              <Link className="button-3 center" to="/register/2" price="14.99">Registrarme</Link>
+              <Link className="button-3 center" to="/register" price="14.99">Registrarme</Link>
             </div>
             <div className="card col-s-12 center">
               <h1>Anual</h1>
@@ -42,7 +42,7 @@ export default class Subs extends Component {
               <div className="prices">
                 <span>$ 85.00</span> <h3 className="discount orange">$ 59.99</h3>
               </div>
-              <Link className="button-3 center" to="/register/3" price="59.99">Registrarme</Link>
+              <Link className="button-3 center" to="/register" price="59.99">Registrarme</Link>
             </div>
           </div>
         </div>

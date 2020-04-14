@@ -7,7 +7,11 @@ import { setJWTBearer, setLocalStorage, getLocalStorage, removeLocalStorage } fr
 
 import Home from './componentes/Pages/Public/Home/Home';
 import Login from './componentes/Pages/Public/Login/Login';
+import Courses from './componentes/Pages/Public/Courses/Courses';
+import Subscription from './componentes/Pages/Public/Subscription/Subscription';
+import Register from './componentes/Pages/Public/Register/Register';
 import Signin from './componentes/Pages/Public/SignIn/SignIn';
+import Sobre from './componentes/Pages/Public/Sobre/Sobre';
 
 import ProductList from './componentes/Pages/Private/Products/ProductList';
 import ProductDetail from './componentes/Pages/Private/Products/ProductDetail';
@@ -94,6 +98,11 @@ class App extends Component{
         <Switch>
           <Route render={(props) => { return (<Home {...props} auth={auth} />) }} path="/" exact />
           <Route render={(props) => { return (<Login {...props} auth={auth} login={this.login} />)}} path="/login" exact/>
+          <Route render={(props) => { return (<Signin {...props} auth={auth} login={this.login} />)}} path="/signin" exact/>
+          <Route render={(props) => { return (<Courses {...props} auth={auth} />) }} path="/courses" exact/>
+          <Route render={(props) => { return (<Subscription {...props} auth={auth} />) }} path="/subscription" exact/>
+          <Route render={(props) => { return (<Register {...props} auth={auth}/>) }} path="/register" component={Register}  exact/>
+          <Route render={(props) => { return (<Sobre {...props} auth={auth} />) }} path="/sobre" exact/>
         </Switch>
       </Router>
       );  

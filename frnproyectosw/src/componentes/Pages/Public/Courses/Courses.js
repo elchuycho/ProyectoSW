@@ -2,7 +2,6 @@ import  React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { IoIosInformationCircleOutline, IoIosSync, IoMdAddCircle, IoIosImage } from 'react-icons/io';
 import {Link} from 'react-router-dom';
-import Loading from '../../../Common/Loading/Loading';
 import Page from '../../Page';
 import { paxios } from '../../../Utilities/Utilities.js';
 export default class Courses extends Component {
@@ -93,7 +92,6 @@ export default class Courses extends Component {
               useWindow={false}
               threshold={108}
               getScrollParent={()=>this.scrollParentRef}
-              loader={<Loading key="pbListLoading" className="listItem center col-s-5 col-offset-1 col-m-3 col-2"/>}
               className="list col-s-12 col-offset-m-1 col-m-11 col-9 col-offset-2"
               >
                 {uiItems}
