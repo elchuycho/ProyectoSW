@@ -16,15 +16,15 @@ export default ( {children, title, login} )=>{
 
 */
 
-
+import './Header.css';
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import {IoIosSettings,IoIosCloseCircleOutline,IoMdLogOut} from 'react-icons/io';
-import img from './ejemplo.jpg';
+import img from './ejemplo.png';
 import {getLocalStorage} from '../Utilities/Utilities';
 import { saxios,paxios } from '../Utilities/Utilities';
 export default class Header extends Component{
-    
+
     constructor(){
         super();
         this.logoutOnClick = this.logoutOnClick.bind(this);
@@ -36,7 +36,7 @@ export default class Header extends Component{
         }
     }
     componentDidMount(){
-        const type = this.state.userType;      
+        const type = this.state.userType;
         paxios.post('/api/admin/access/makeMenu',{userType:type}).
         then((resp)=>{
             if(resp){
@@ -55,7 +55,7 @@ export default class Header extends Component{
         this.props.auth.logout();
     }
     render(){
-        
+
         const userMenu = [];
         if(this.state.menu.length >= 0){
             this.state.menu.map((menus)=>{
@@ -78,33 +78,33 @@ export default class Header extends Component{
                 </div>
                 <div className={displaying ? "close":"hidden"}>
                 <IoIosCloseCircleOutline onClick={ ()=>{this.setState({display: !displaying})}}/>
-                </div>     
+                </div>
                 <ul className={(shown && true) ? "nav-links open col-s-12 col-m-5 col-6 col-l-5 no-margin center": "nav-links col-s-12 col-m-5 col-6 col-l-5 no-margin center" }>
                     <li><Link to="/courses">Todos los Cursos</Link></li>
                     <li><Link to="/mycourses">Cursos Registrados</Link></li>
                     <li className="user-menu" onClick={ ()=>{this.setState({display: !displaying})}}><IoIosSettings/></li>
                 </ul>
-                <ul className={displaying ? "menu-links open col-s-12 col-m-5 col-3 col-l-3 no-margin center no-padding": 
+                <ul className={displaying ? "menu-links open col-s-12 col-m-5 col-3 col-l-3 no-margin center no-padding":
                 "menu-links col-s-12 col-m-5 col-3 col-l-3 no-margin center no-padding" }>
                     <li><h2>Bienvenido</h2></li>
                     {userMenu}
                     <li><a onClick={this.logoutOnClick}><IoMdLogOut/> Cerrar Sesión</a></li>
                 </ul>
             </header>
-            );       
+            );
         }
         else{
-            return(   
+            return(
             <header className="col-s-12">
                 <div className="title col-s-7 col-m-5 col-12 no-margin no-padding">
                 <Link to="/"><img src={img} alt="Katabu" width="200"/></Link>
-                
+
                 </div>
                 <div onClick={ ()=>{this.setState({open: !shown})}} className="burger" id="hmb">
                     <div></div>
                     <div></div>
                     <div></div>
-                </div>     
+                </div>
                 <ul className={ shown ? "nav-links open col-s-12 col-m-5 col-5 col-l-4 no-margin center": "nav-links col-s-12 col-m-5 col-5 col-l-4 no-margin center" }>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/courses">Cursos</Link></li>
@@ -113,7 +113,7 @@ export default class Header extends Component{
                     <li><Link to="/sobre">Sobre Nosotros</Link></li>
                 </ul>
             </header>
-            );       
+            );
         }
     }
 }

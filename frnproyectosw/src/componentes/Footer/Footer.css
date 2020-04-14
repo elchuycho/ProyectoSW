@@ -1,10 +1,15 @@
-footer {
-  background-color: #000;
-  width: 100vw;
-  color: #fff;
-  padding: 0;
-  margin: 0;
+
+
+Footer {
+  color: antiquewhite;
+  bottom:0;  width:100%;
+  text-align:center;
+  height:60px;
+  line-height:60px;
+  background-color: black;
 }
+
+/*
 nav {
   width: 100vw;
   padding: 0px;
@@ -37,3 +42,4 @@ nav ul li a {
 nav ul li a:hover{
   background-color: #777;
 }
+*/

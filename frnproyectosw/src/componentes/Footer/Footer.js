@@ -80,7 +80,7 @@ destruye
 
 
 
-
+import './Footer.css';
 import React, { Component } from 'react';
 
 
@@ -88,12 +88,12 @@ export default class Footer extends Component{
     render(){
         return(
             <footer>
-                <div className="rights">   
+                <div className="rights">
                     <span>&copy; Katabu</span>
                     <span>&reg; Todos los Derechos Reservados </span>
                 </div>
             </footer>
         );
-    
+
     }
 }
