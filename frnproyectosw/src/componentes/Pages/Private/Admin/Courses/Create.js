@@ -14,10 +14,8 @@ export default class CreateCourse extends Component{
             nameError: null,
             desc: '',
             descError: null,
-            chours:'',
-            choursError: null,
             req:'',
-            reqError:'',
+            reqError: null,
             act: "false"
         }
         this.onClickUpdate = this.onClickUpdate.bind(this);
@@ -33,17 +31,16 @@ export default class CreateCourse extends Component{
         if (errors) {
           this.setState({ ...this.state, ...errors });
         } else{
-            const { name,  desc, chours, req} = this.state;
-            const cHours = parseInt(chours);
-            if(cHours===0 || cHours>500){
-                alert("Ingrese una cantidad de horas realista");
+            const { name,  desc, req} = this.state;
+            const Req = parseInt(req);
+            if(Req===0 || Req>10000){
+                alert("Ingrese un precio mas adecuado.");
             }
             else{
                 const uri = '/api/admin/courses/new';
                 saxios.post(uri,{
                     name: this.state.name,
                     desc: this.state.desc,
-                    chours: this.state.chours,
                     req: this.state.req,
                     act: this.state.act
                 })
@@ -61,10 +58,10 @@ export default class CreateCourse extends Component{
     validate(state){
         let nameErrors = false;
         let tmpErrors = [];
-        const { name,  desc, chours, req} = state;
+        const { name,  desc, req} = state;
         if (name !== undefined) {
           if (!longStringRegex.test(name) || emptyRegex.test(name)) {
-            tmpErrors.push("Ingrese un nombre en un formato válido (Mínimo 4 letras)");
+            tmpErrors.push("Ingrese el nombre del curso nuevo: ");
           }
           if (tmpErrors.length) {
             nameErrors = Object.assign({}, nameErrors, { nameError: tmpErrors });
@@ -73,25 +70,16 @@ export default class CreateCourse extends Component{
         if (desc !== undefined) {
             let tmpErrors = [];
             if (!longStringRegex.test(desc) || emptyRegex.test(desc)) {
-              tmpErrors.push("Ingrese una descripción en un formato válido (Mínimo 4 letras)");
+              tmpErrors.push("Ingrese una descripción del curso: ");
             }
             if (tmpErrors.length) {
               nameErrors = Object.assign({}, nameErrors, { descError: tmpErrors });
             }
         }
-        if (chours !== undefined) {
-            let tmpErrors = [];
-            if (!edadRegex.test(chours) || emptyRegex.test(chours)) {
-              tmpErrors.push("Ingrese una cantidad de horas en un formato válido (numérico)");
-            }
-            if (tmpErrors.length) {
-              nameErrors = Object.assign({}, nameErrors, { choursError: tmpErrors });
-            }
-        }
         if (req !== undefined) {
             let tmpErrors = [];
             if (!longStringRegex.test(req) || emptyRegex.test(req)) {
-              tmpErrors.push("Ingrese una cantidad de horas en un formato válido (Mínimo 4 letras)");
+              tmpErrors.push("Ingrese el precio del curso: ");
             }
             if (tmpErrors.length) {
               nameErrors = Object.assign({}, nameErrors, { reqError: tmpErrors });
@@ -142,27 +130,19 @@ export default class CreateCourse extends Component{
                 className="col-s-12"
             />,
             <Input
-                name="chours"
-                caption="Horas aproximadas para completar el curso"
-                value={this.state.chours}
-                onChange={this.onChangeHandler}
-                error={this.state.choursError}
-                className="col-s-12"
-            />,
-            <Input
                 name="req"
-                caption="Requerimientos para el Curso"
+                caption="Precio del Curso"
                 value={this.state.req}
                 onChange={this.onChangeHandler}
                 error={this.state.reqError}
                 className="col-s-12"
             />,
             <Select
-              name="act"
-              id="act"
-              item={selectItems}
-              caption="Activacion del Curso"
-              onChange={this.changeCMB}
+            name="act"
+            id="act"
+            item={selectItems}
+            caption="Activacion del Curso"
+            onChange={this.changeCMB}
             />,
           ];
         return(

@@ -1,3 +1,5 @@
+//ARREGLAR ESTO
+
 import React, { Component } from 'react';
 import Page from '../../../Page';
 import Input from '../../../../Forms/Input/Input';

@@ -81,8 +81,9 @@ export default class Header extends Component{
                 </div>
                 <ul className={(shown && true) ? "nav-links open col-s-12 col-m-5 col-6 col-l-5 no-margin center": "nav-links col-s-12 col-m-5 col-6 col-l-5 no-margin center" }>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/courses">Todos los Cursos</Link></li>
-                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/courses">Cursos</Link></li>
+                    <li><Link to="/sobre">Sobre Nosotros</Link></li>
+                    <li><Link to="/user">Mi Perfil</Link></li>
                     <li className="user-menu" onClick={ ()=>{this.setState({display: !displaying})}}><IoIosSettings/></li>
                 </ul>
                 <ul className={displaying ? "menu-links open col-s-12 col-m-5 col-3 col-l-3 no-margin center no-padding":
@@ -110,8 +111,8 @@ export default class Header extends Component{
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/courses">Cursos</Link></li>
                     <li><Link to="/subscription">Subscripciones</Link></li>
-                    <li><Link to="/login">Inicia Sesión</Link></li>
                     <li><Link to="/sobre">Sobre Nosotros</Link></li>
+                    <li><Link to="/login">Iniciar Sesión</Link></li>  
                 </ul>
             </header>
             );

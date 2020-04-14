@@ -14,8 +14,6 @@ export default class UpdateCourse extends Component{
             nameError: null,
             desc: '',
             descError: null,
-            chours:'',
-            choursError: null,
             req:'',
             reqError:'',
             act: "false"
@@ -43,7 +41,6 @@ export default class UpdateCourse extends Component{
           this.setState({
             name: data.data.courseName,
             desc: data.data.courseDesc,
-            chours: data.data.courseHours,
             req: data.data.courseRequirements,
             act: active
           });
@@ -60,22 +57,21 @@ export default class UpdateCourse extends Component{
         if (errors) {
           this.setState({ ...this.state, ...errors });
         } else{
-            const { name,  desc, chours, req} = this.state;
-            const cHours = parseInt(chours);
-            if(cHours===0 || cHours>500){
-                alert("Ingrese una cantidad de horas realista");
+            const { name,  desc, req} = this.state;
+            const Req = parseInt(req);
+            if(Req===0 || Req>500){
+                alert("Ingrese un precio mas adecuado.");
             }
             else{
                 const uri = `/api/admin/courses/update/${this.props.match.params.id}`;
                 saxios.put(uri,{
                     name: this.state.name,
                     desc: this.state.desc,
-                    chours: this.state.chours,
                     req: this.state.req,
                     act: this.state.act
                 })
                 .then(({ data }) => {
-                    alert("Ha sido actualizado correctamente el curso");
+                    alert("El curso ha sido actualizado correctamente.");
                 })
                 .catch((err) => {
                     console.log(err);
@@ -88,7 +84,7 @@ export default class UpdateCourse extends Component{
     validate(state){
         let nameErrors = false;
         let tmpErrors = [];
-        const { name,  desc, chours, req} = state;
+        const { name,  desc, req} = state;
         if (name !== undefined) {
           if (!longStringRegex.test(name) || emptyRegex.test(name)) {
             tmpErrors.push("Ingrese un nombre en un formato válido (Mínimo 4 letras)");
@@ -104,15 +100,6 @@ export default class UpdateCourse extends Component{
             }
             if (tmpErrors.length) {
               nameErrors = Object.assign({}, nameErrors, { descError: tmpErrors });
-            }
-        }
-        if (chours !== undefined) {
-            let tmpErrors = [];
-            if (!edadRegex.test(chours) || emptyRegex.test(chours)) {
-              tmpErrors.push("Ingrese una cantidad de horas en un formato válido (numérico)");
-            }
-            if (tmpErrors.length) {
-              nameErrors = Object.assign({}, nameErrors, { choursError: tmpErrors });
             }
         }
         if (req !== undefined) {
@@ -169,16 +156,8 @@ export default class UpdateCourse extends Component{
                 className="col-s-12"
             />,
             <Input
-                name="chours"
-                caption="Horas aproximadas para completar el curso"
-                value={this.state.chours}
-                onChange={this.onChangeHandler}
-                error={this.state.choursError}
-                className="col-s-12"
-            />,
-            <Input
                 name="req"
-                caption="Requerimientos para el Curso"
+                caption="Precio del Curso"
                 value={this.state.req}
                 onChange={this.onChangeHandler}
                 error={this.state.reqError}

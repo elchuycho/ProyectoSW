@@ -1,3 +1,5 @@
+//ARREGLAR ESTO
+
 import  React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { IoIosInformationCircleOutline, IoIosSync, IoMdAddCircle, IoIosImage } from 'react-icons/io';
@@ -88,14 +90,13 @@ export default class User extends Component {
             <br />
             <div className="line"></div>
             <br />
-            <h2>Tiempo de Completación <br/> {item.courseHours} H</h2>
             <p>{item.courseDesc}</p>
             <br />
             <div className="line"></div>
             <br />
             {(this.props.auth.isLogged)? <Link className="button-3" to={link+item._id}>{dsc}</Link>:
-            <Link className="button-3" to={link}>Registrar</Link> }
-            
+            <Link className="button-3 center" to="/updateuser">Cambiar Perfil</Link> }
+     
            
           </div>);
       }
@@ -108,20 +109,9 @@ export default class User extends Component {
   
     return (
       <Page pageURL="/user " auth={this.props.auth}>
-        <div className="page-courses">
-        <InfiniteScroll
-              pageStart={0}
-              loadMore={this.loadMore}
-              hasMore={this.state.hasMore}
-              useWindow={false}
-              threshold={108}
-              getScrollParent={()=>this.scrollParentRef}
-              className="list col-s-12 col-offset-m-1 col-m-11 col-9 col-offset-2"
-              >
-                {uiItems}
-            </InfiniteScroll>
-        </div>
-            
+        <div className="usuario-actualizar">
+            <Link className="button-3 center" to="/updateuser">Cambiar Perfil</Link>
+        </div>   
       </Page>
      );
     }

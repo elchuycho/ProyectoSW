@@ -1,3 +1,5 @@
+//VER QUE FUNCIONE
+
 import  React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { IoIosInformationCircleOutline, IoIosSync, IoMdAddCircle, IoIosImage } from 'react-icons/io';
