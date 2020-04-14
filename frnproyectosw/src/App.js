@@ -13,10 +13,9 @@ import Register from './componentes/Pages/Public/Register/Register';
 import Signin from './componentes/Pages/Public/SignIn/SignIn';
 import Sobre from './componentes/Pages/Public/Sobre/Sobre';
 
-import ProductList from './componentes/Pages/Private/Products/ProductList';
-import ProductDetail from './componentes/Pages/Private/Products/ProductDetail';
-import ProductAdd from './componentes/Pages/Private/Products/ProductNew';
-import ProductImg from './componentes/Pages/Private/Products/ProductImg';
+import CreateCourse from './componentes/Pages/Private/Admin/Courses/Create';
+import UpdateCourse from './componentes/Pages/Private/Admin/Courses/Update';
+import DeleteCourse from './componentes/Pages/Private/Admin/Courses/Delete';
 
 /*function App() {
   return (
@@ -103,6 +102,10 @@ class App extends Component{
           <Route render={(props) => { return (<Subscription {...props} auth={auth} />) }} path="/subscription" exact/>
           <Route render={(props) => { return (<Register {...props} auth={auth}/>) }} path="/register" component={Register}  exact/>
           <Route render={(props) => { return (<Sobre {...props} auth={auth} />) }} path="/sobre" exact/>
+
+          <PrivateRoute component={CreateCourse} path="/create" exact auth={auth}/>
+          <PrivateRoute component={UpdateCourse} path="/update:id" exact auth={auth}/>
+          <PrivateRoute component={DeleteCourse} path="/delete:id" exact auth={auth}/>
         </Switch>
       </Router>
       );  
