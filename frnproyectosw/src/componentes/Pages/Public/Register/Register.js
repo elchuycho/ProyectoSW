@@ -34,6 +34,7 @@ export default class Signin extends Component {
     this.onClickSignIn = this.onClickSignIn.bind(this);
     this.startPayment = this.startPayment.bind(this);
   }
+
   componentDidMount() {
     const { plan } = this.props.match.params;
     if (plan === "2") {
@@ -43,6 +44,7 @@ export default class Signin extends Component {
       this.setState({ price: "59.99" });
     }
   }
+  
   validate(state) {
     let nameErrors = null;
     let tmpErrors = [];
@@ -111,18 +113,15 @@ export default class Signin extends Component {
         email === "aaa@aaa.com" ||
         email === "aa@aa.aa"
       )
-        alert("Sea mas original con el correo por favor");
-      else if (email === "easter@egg.com")
-        alert("Easter Egg detected. Congratulations");
+        alert("Escoga un correo mejor elaborado.");
       else {
         this.setState({ loading: true });
         let plan = this.props.match.params.plan;
         let months = 1;
         if (plan === "2") 
             months=3;
-            
         if (plan === "3")
-            months=12 
+            months=12;
             
         paxios
           .post("/api/user/register", {
@@ -145,6 +144,7 @@ export default class Signin extends Component {
       }
     }
   }
+
   startPayment(id) {
     if (id !== undefined) {
       let plan = this.props.match.params.plan;
@@ -185,6 +185,7 @@ export default class Signin extends Component {
       alert("ocurrio un error 2, vuelve a intentarlo");
     }
   }
+  
   render() {
     const price = this.state.price;
     let loading = this.state.loading;

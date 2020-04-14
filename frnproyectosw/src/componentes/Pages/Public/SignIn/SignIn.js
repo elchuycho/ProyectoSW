@@ -5,6 +5,7 @@ import { Actions } from '../../../Forms/Buttons/Button';
 import { emailRegex, emptyRegex } from '../../../Forms/Validators/Validators';
 import { Link } from 'react-router-dom'; 
 import {paxios} from '../../../Utilities/Utilities';
+
 export default class Login extends Component {
   /*
   1) Capturar los eventos de los botones
@@ -53,6 +54,7 @@ export default class Login extends Component {
     }
     return nameErrors;
   }
+  
   onChangeHandler(e) {
     const { name, value } = e.currentTarget;
     // Aqui puedo validar datos y establecer elementos de error.
@@ -66,6 +68,7 @@ export default class Login extends Component {
       ...errors
     });
   }
+
   onClickCreateAccount(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -92,14 +95,17 @@ export default class Login extends Component {
         })
     }
   }
+
   onClickLogin(e) {
     e.preventDefault();
     e.stopPropagation();
     alert("Click en Login");
   }
+
   render() {
     return (
       <Page pageTitle="Nueva Cuenta" auth={this.props.auth}>
+        <h1 className="center">Crear Nueva Cuenta</h1>
         <Field
           name="userName"
           caption="Nombre Completo"
@@ -125,6 +131,7 @@ export default class Login extends Component {
           error={this.state.passwordError}
         />
         <Actions>
+          <button onClick={this.onClickCreateAccount}>Crear</button>
           <button><Link to="/login">Iniciar Sesión</Link></button>
         </Actions>
       </Page>

@@ -5,7 +5,10 @@ import {Link} from 'react-router-dom';
 import Page from '../../Page';
 import { paxios, saxios } from '../../../Utilities/Utilities.js';
 
-export default class Courses extends Component {
+import Input from "../../../Forms/Input/Input";
+import Select from "../../../Forms/Select/Select";
+
+export default class User extends Component {
   constructor(){
     super();
     this.state={
@@ -38,7 +41,7 @@ export default class Courses extends Component {
 
  loadMore(page){
     const items  = this.state.itemsToLoad;
-    const uri = `/api/public/courses/${page}/${items}`;
+    const uri = `/api/client/${page}/${items}`;
     paxios.get(uri)
       .then(
         ({data})=>{
@@ -104,7 +107,7 @@ export default class Courses extends Component {
       </div>);
   
     return (
-      <Page pageURL="/courses " auth={this.props.auth}>
+      <Page pageURL="/user " auth={this.props.auth}>
         <div className="page-courses">
         <InfiniteScroll
               pageStart={0}

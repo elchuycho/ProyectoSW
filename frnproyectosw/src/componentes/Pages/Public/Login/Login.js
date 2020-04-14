@@ -27,6 +27,7 @@ export default class Login extends Component{
     this.onClickCreateAccount = this.onClickCreateAccount.bind(this);
     this.validate = this.validate.bind(this);
   }
+
   validate(state){
     let nameErrors = null;
     let tmpErrors = [];
@@ -100,6 +101,7 @@ export default class Login extends Component{
     e.stopPropagation();
     alert("Click en Crear Cuenta");
   }
+
   render(){
     if (this.state.redirecTo){
       const redirect = (this.props.location.state) ? this.props.location.state.from.pathname : '/';
@@ -107,6 +109,7 @@ export default class Login extends Component{
     }
     return (
       <Page pageTitle="Iniciar" auth={this.props.auth}>
+        <h1 className="center">Iniciar Sesión</h1>
         <Field
           name="email"
           caption="Correo"
@@ -124,6 +127,7 @@ export default class Login extends Component{
           error={this.state.passwordError}
         />
         <Actions>
+          <button className="button-3 col-s-12" type="button" onClick={this.onClickLogin}>Entrar</button>
           <button><Link to="/signin">Crear Cuenta</Link></button>
         </Actions>
       </Page>

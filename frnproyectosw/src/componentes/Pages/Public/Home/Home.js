@@ -3,7 +3,6 @@ import Page from '../../Page';
 import './home.css';
 
 import {Link} from 'react-router-dom';
-import { DiCss3,DiHtml5,DiPhp } from "react-icons/di";
 export default ({auth})=>{
     return (
         <Page pageURL="WELCOME?" auth={auth}>
