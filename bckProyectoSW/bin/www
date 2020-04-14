@@ -21,7 +21,7 @@ MongoClient.connect(MongoUri, MongoOpt, (err, conn) => {
     var db = conn.db(MongoDB);
 
     var app = require('../app')(db);
-    var debug = require('debug')('bcklencastore:server');
+    var debug = require('debug')('bckproyectosw:server');
     var http = require('http');
 
     /**
@@ -105,4 +105,4 @@ MongoClient.connect(MongoUri, MongoOpt, (err, conn) => {
         debug('Listening on ' + bind);
     }
 
-}); ///MongoConnect
+}); //MongoConnect

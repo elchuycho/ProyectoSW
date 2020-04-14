@@ -1,3 +1,5 @@
+var ObjectID = require('mongodb').ObjectID;
+
 var fs = require('fs');
 var fs2 = require('fs');
 var fileToSave = 'courses.json';
@@ -5,6 +7,9 @@ var fileToSave2 = 'payments.json';
 var userModel = {};
 var userCollection = [];
 var userCollection2 = [];
+
+var coursesCollection = db.collection("courses");
+var userCollection = db.collection("user");
 
 function writeToFile(){
   var serializedJSON = JSON.stringify(userCollection);
@@ -23,11 +28,10 @@ function openFile(){
 
 
 var userTemplate = {
-    productosid:'',
-    productostitle:"",
+    courseid:'',
+    coursename:"",
     productosupd1:"",
-    productosupd2:"",
-    productosalbum: ""
+    productosupd2:""
 }
 
 
@@ -41,7 +45,7 @@ userModel.getAll = ()=>{
 userModel.getById = (id)=>{
     var filteredUsers = userCollection.filter(
         (o)=>{
-            return o.productosid === id;
+            return o.courseid === id;
         }
     );
     if(filteredUsers.length){
@@ -53,18 +57,17 @@ userModel.getById = (id)=>{
 
 
 
-userModel.addNew = ( {productostitle1,productosalbum1,productosupd11,productosupd21} )=>{
+userModel.addNew = ( {coursename1,productosupd11,productosupd21} )=>{
     var newUser = Object.assign(
     {},
     userTemplate,
     {
-        productostitle:productostitle1,
-        productosalbum:productosalbum1,
+        coursename:coursename1,
         productosupd1:productosupd11,
         productosupd2:productosupd21
     }
   );
-    newUser.productosid = userCollection.length + 1;
+    newUser.courseid = userCollection.length + 1;
 
     userCollection.push(newUser);
     writeToFile();
@@ -75,7 +78,7 @@ userModel.addNew = ( {productostitle1,productosalbum1,productosupd11,productosup
 userModel.update = (id, { productosupd11, productosupd21 })=>{
     var updatingUser = userCollection.filter(
       (o, i)=>{
-        return o.productosid === id;
+        return o.courseid === id;
       }
     );
     if(updatingUser && updatingUser.length>0){
@@ -86,7 +89,7 @@ userModel.update = (id, { productosupd11, productosupd21 })=>{
     var updateUser = {};
     var newUpdatedCollection = userCollection.map(
       (o, i)=>{
-        if(o.productosid === id){
+        if(o.courseid === id){
           updateUser = Object.assign({},
              o,
             { productosupd1: productosupd11, productosupd2:productosupd21}
@@ -108,7 +111,7 @@ userModel.deleteByCode = (id)=>{
   var newCollection = [];
   newCollection = userCollection.filter(
     (o)=>{
-      return o.productosid !== id;
+      return o.courseid !== id;
     }
   );
   userCollection = newCollection;
@@ -116,23 +119,6 @@ userModel.deleteByCode = (id)=>{
   return true;
 }
 
-
-
-
-//prueba estatico
-/*userCollection.push(
-    Object.assign(
-        {},
-        userTemplate,
-        {
-            productosid:1,
-            productostitle:"PRUEBA TITLE 1",
-            productosupd1:"bla",
-            productosupd2:"bla",
-            productosalbum: "bla"
-        }
-    )
-);*/
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -154,9 +140,7 @@ function openFile2(){
 var userTemplate2 = {
     paymentsid:'',
     paymentstitle:"",
-    paymentsupd1:"",
-    paymentsupd2:"",
-    paymentsalbum: ""
+    paymentsupd1:""
 }
 
 
@@ -181,15 +165,13 @@ userModel.getById1 = (id)=>{
 
 
 
-userModel.addNew1 = ( {paymentstitle1,paymentsalbum1,paymentsupd11,paymentsupd21} )=>{
+userModel.addNew1 = ( {paymentstitle1, paymentsupd11} )=>{
     var newUser2 = Object.assign(
     {},
     userTemplate2,
     {
         paymentstitle:paymentstitle1,
-        paymentsalbum:paymentsalbum1,
-        paymentsupd1:paymentsupd11,
-        paymentsupd2:paymentsupd21
+        paymentsupd1:paymentsupd11
     }
   );
     newUser2.paymentsid = userCollection2.length + 1;
@@ -200,7 +182,7 @@ userModel.addNew1 = ( {paymentstitle1,paymentsalbum1,paymentsupd11,paymentsupd21
 }
 
 
-userModel.update1 = (id, { paymentsupd11, paymentsupd21 })=>{
+userModel.update1 = (id, { paymentsupd11 })=>{
     var updatingUser = userCollection2.filter(
       (o, i)=>{
         return o.paymentsid === id;
@@ -217,7 +199,7 @@ userModel.update1 = (id, { paymentsupd11, paymentsupd21 })=>{
         if(o.paymentsid === id){
           updateUser = Object.assign({},
              o,
-            { paymentsupd1: paymentsupd11, paymentsupd2:paymentsupd21}
+            { paymentsupd1: paymentsupd11}
           );
           return updateUser;
         }else{
@@ -244,23 +226,6 @@ userModel.deleteByCode1 = (id)=>{
   return true;
 }
 
-
-
-
-//prueba estatico
-/*userCollection2.push(
-    Object.assign(
-        {},
-        userTemplate2,
-        {
-            paymentsid:1,
-            paymentstitle:"PRUEBA TITLE 1",
-            paymentsupd1:"bla",
-            paymentsupd2:"bla",
-            paymentsalbum: "bla"
-        }
-    )
-);*/
 
 
 
