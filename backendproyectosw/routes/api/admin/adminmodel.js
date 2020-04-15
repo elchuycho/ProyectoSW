@@ -4,7 +4,11 @@ function adminmodel(db){
   var lib = {};
   var empColl = db.collection('courses');
 
-
+  var userTemplate = {
+    coursename: "",
+    coursedescrip: "",
+    courseprice: ""
+  }
   //////////////////////GET EMPLOYESSS ALL///////////////////////////////
   lib.getcourses = (handler)=>{
     empColl.find({}).toArray(handler);
