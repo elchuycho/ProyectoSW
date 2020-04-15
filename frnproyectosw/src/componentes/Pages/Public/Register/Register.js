@@ -25,7 +25,7 @@ export default class Signin extends Component {
       emailError: null,
       password: "",
       passwordError: null,
-      price: "5.99",
+      price: "150 lps",
       plan: "0",
       redirect: false,
       url: "",
@@ -226,7 +226,7 @@ export default class Signin extends Component {
       return <Redirect to={this.state.url} />;
     }
     return (
-      <Page pageURL="SignIn" price="5.99">
+      <Page pageURL="SignIn">
       <div class="container55">
         <div className="page-register">
           <Total
