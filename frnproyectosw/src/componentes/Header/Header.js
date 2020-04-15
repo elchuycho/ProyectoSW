@@ -68,8 +68,8 @@ export default class Header extends Component{
         if(this.props.auth && this.props.auth.isLogged && true){
             return(
                 <header className="col-s-12">
-                <div className="title col-s-7 col-m-5 col-12 no-margin no-padding">
-                <Link to="/"><img src={img} alt="Logo Katabu" width="200"/></Link>
+                <div className="foto">
+
                 </div>
                 <div onClick={ ()=>{this.setState({open: !shown})}} className={displaying ? "hide":"burger"} id="hmb">
                     <div></div>
@@ -107,12 +107,12 @@ export default class Header extends Component{
                     <div></div>
                     <div></div>
                 </div>
-                <ul className={ shown ? "nav-links open col-s-12 col-m-5 col-5 col-l-4 no-margin center": "nav-links col-s-12 col-m-5 col-5 col-l-4 no-margin center" }>
+                <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/courses">Cursos</Link></li>
                     <li><Link to="/subscription">Subscripciones</Link></li>
                     <li><Link to="/sobre">Sobre Nosotros</Link></li>
-                    <li><Link to="/login">Iniciar Sesión</Link></li>  
+                    <li><Link to="/login">Iniciar Sesión</Link></li>
                 </ul>
             </header>
             );

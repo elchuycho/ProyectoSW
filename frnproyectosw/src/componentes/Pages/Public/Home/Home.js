@@ -7,13 +7,16 @@ export default ({auth})=>{
     return (
         <Page pageURL="WELCOME?" auth={auth}>
             <section className="page-landing">
-                <div className="landing-photo col-s-12 col-m-9 col-10 no-padding">
-                    <h2 className="col-s-12-3">¡Aprender garífuna nunca ha sido más sencillo!</h2>
-                </div>
-                <h2 className="col-s-12">Cursos en línea</h2>
-                <Link className="button-3 col-s-8 col-m-5 col-3" to="/courses">Ver Cursos</Link>
+
+                      <h2 className="JIJIJIJ">K A T A B U</h2>
+
+                <h2 className="col-s-1">Cursos en línea</h2>
+                  <h3 className="definicion"> Los garífuna son un grupo étnico descendiente de africanos</h3>
+                  <h3 className="definicion1">   y aborígenes caribes y arahuacos originario de varias regiones del Caribe.</h3>
+                  <h3 className="definicion2">   También se les conoce como garinagu, indios negros, caribes negros o Black Caribs.</h3>
+            <h2 className="pupu">
+            <Link className="button-3 col-s-8 col-m-5 col-3" to="/courses">Ver Cursos</Link> </h2>
                 <section className="courses col-s-12 col-m-3 col-2 no-padding">
-                    <h2 className="col-s-12">Populares</h2>
                 </section>
             </section>
         </Page>

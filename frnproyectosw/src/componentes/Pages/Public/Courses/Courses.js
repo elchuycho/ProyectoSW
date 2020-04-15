@@ -1,5 +1,6 @@
 //VER QUE FUNCIONE
 
+import './courses.css';
 import  React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { IoIosInformationCircleOutline, IoIosSync, IoMdAddCircle, IoIosImage } from 'react-icons/io';
@@ -94,33 +95,77 @@ export default class Courses extends Component {
             <br />
             {(this.props.auth.isLogged)? <Link className="button-3" to={link+item._id}>{dsc}</Link>:
             <Link className="button-3" to={link}>Registrar</Link> }
-            
-           
+
+
           </div>);
       }
     );
-  
+
     if (!uiItems.length) uiItems.push(
       <div className="listItem" key="pbListAddOne">
-        <span>No hay nada aquí</span>
+        <span></span>
       </div>);
-  
+
     return (
       <Page pageURL="/courses " auth={this.props.auth}>
-        <div className="page-courses">
-        <InfiniteScroll
-              pageStart={0}
-              loadMore={this.loadMore}
-              hasMore={this.state.hasMore}
-              useWindow={false}
-              threshold={108}
-              getScrollParent={()=>this.scrollParentRef}
-              className="list col-s-12 col-offset-m-1 col-m-11 col-9 col-offset-2"
-              >
-                {uiItems}
-            </InfiniteScroll>
-        </div>
-            
+
+  <h2 className="col-s-12-3">Cursos</h2>
+
+  <div class="container78">
+        <div class="collapse-content">
+  <div class="collapse" id="instagram">
+    <a class="instagram" href="#instagram"
+      ><i class="fab fa-instagram"></i> Curso Garifuna Nivel Principiante</a
+    >
+    <div class="content">
+      <div class="inner-content">
+        <h3>Introducción Fonología</h3>
+        Nivel basico de Garifuna, el estudiante aprendera el vocabulario, formacion,pronunciacion de palabras y escritura basica.
+      </div>
+    </div>
+  </div>
+  <div class="collapse" id="twitter">
+    <a class="twitter" href="#twitter"
+      ><i class="fab fa-twitter"></i> Curso de Procesos Morfológicos</a
+    >
+    <div class="content">
+      <div class="inner-content">
+        <h3>Dimensión Nominal & Verbal</h3>
+        El alumno aprendera los géneros,
+            posesion,
+            número,
+            neterminantes,
+            demostrativos y definidad,
+            cuantificadores,
+            posesivos,
+            pronombres
+      </div>
+    </div>
+  </div>
+  <div class="collapse" id="dribbble">
+    <a class="dribbble" href="#dribbble"
+      ><i class="fab fa-dribbble"></i> Curso Garifuna Nivel Intermedio</a
+    >
+    <div class="content">
+      <div class="inner-content">
+        <h3>Dimensión verbal</h3>
+Nivel Intermedio de Garifuna, el estudiante aprendera formulacion de palabras, conjugacion de oraciones por tiempo, formas auxiliares,Categorias verbales, Adjetivos, Conjunciones.
+      </div>
+    </div>
+  </div>
+  <div class="collapse" id="youtube">
+    <a class="youtube" href="#youtube"
+      ><i class="fab fa-youtube"></i> Curso Garifuna Nivel Avanzado</a
+    >
+    <div class="content">
+      <div class="inner-content">
+        <h3>Oraciones y Compuestas</h3>
+      Nivel Avanzado de Garifuna, el estudiante podra comprender en un 80%-100% el leguaje garifuna, aprendera a conjugar con los tiempos,oraciones compuestas,comprension, lectura y escritura.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
       </Page>
      );
     }

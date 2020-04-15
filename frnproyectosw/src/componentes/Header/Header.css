@@ -1,11 +1,4 @@
-h1{
-/*  width:100vw;
-  margin:0;
-  padding:0.7em;
-  text-align: center;
-  background-color: #000;
-  color:white; */
-}
+
 
 header
   {
@@ -27,20 +20,24 @@ clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 50%);
   }
 
   ul li{
-    font-weight: bold;
+  font-weight: bold;
   background-color: antiquewhite;
   border-radius: 25px;
-  border: none;
   color: white;
   padding: 15px 32px;
+  margin: 1em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  transform: translate(5%, 400%);
+
   font-size: 16px;
   -webkit-box-shadow: 9px 4px 5px 0px rgba(83,86,87,1);
   -moz-box-shadow: 9px 4px 5px 0px rgba(83,86,87,1);
   box-shadow: 9px 4px 5px 0px rgba(83,86,87,1);
   }
+
+
 
 a{
     text-decoration: none;

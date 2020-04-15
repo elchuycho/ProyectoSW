@@ -46,7 +46,7 @@ export default class Signin extends Component {
       this.setState({ price: "59.99" });
     }
   }
-  
+
   validate(state) {
     let nameErrors = null;
     let tmpErrors = [];
@@ -120,11 +120,11 @@ export default class Signin extends Component {
         this.setState({ loading: true });
         let plan = this.props.match.params.plan;
         let months = 1;
-        if (plan === "2") 
+        if (plan === "2")
             months=3;
         if (plan === "3")
             months=12;
-            
+
         paxios
           .post("/api/user/register", {
             usernames: name,
@@ -187,7 +187,7 @@ export default class Signin extends Component {
       alert("ocurrio un error 2, vuelve a intentarlo");
     }
   }
-  
+
   render() {
     const price = this.state.price;
     let loading = this.state.loading;
@@ -227,6 +227,7 @@ export default class Signin extends Component {
     }
     return (
       <Page pageURL="SignIn" price="5.99">
+      <div class="container55">
         <div className="page-register">
           <Total
             price={price}
@@ -242,6 +243,7 @@ export default class Signin extends Component {
             loading={this.state.loading}
           />
         </div>
+          </div>
       </Page>
     );
   }

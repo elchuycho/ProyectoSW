@@ -13,13 +13,13 @@ export default class Subs extends Component {
   render() {
     return (
       <Page pageURL="/subscriptions" auth={this.props.auth}>
-<h2 className="col-s-12-3">¡Aprender garífuna nunca ha sido más sencillo!</h2>
+  <h2 className="titulo">Suscripciones</h2>
 
-        <div class="container">
+        <div class="container54">
   <div class="card">
     <h3 class="title">Semanal</h3>
     <h2 class="pretitle">150 LPS</h2>
-    <Link to="/register:1">Registrarse</Link>
+  <h2 class="reg">  <Link to="/register:1">Registrarse</Link> </h2>
     <div class="bar">
       <div class="emptybar"></div>
       <div class="filledbar"></div>
@@ -33,6 +33,7 @@ export default class Subs extends Component {
   <div class="card">
     <h3 class="title">Mensual</h3>
     <h2 class="pretitle">250 LPS</h2>
+      <h2 class="reg">  <Link to="/register:1">Registrarse</Link> </h2>
     <div class="bar">
       <div class="emptybar"></div>
       <div class="filledbar"></div>
@@ -46,6 +47,7 @@ export default class Subs extends Component {
   <div class="card">
     <h3 class="title">Bimestral</h3>
     <h2 class="pretitle">350 LPS</h2>
+      <h2 class="reg">  <Link to="/register:1">Registrarse</Link> </h2>
     <div class="bar">
       <div class="emptybar"></div>
       <div class="filledbar"></div>
@@ -59,6 +61,7 @@ export default class Subs extends Component {
   <div class="card">
     <h3 class="title">Anual</h3>
     <h2 class="pretitle">550 LPS</h2>
+      <h2 class="reg">  <Link to="/register:1">Registrarse</Link> </h2>
     <div class="bar">
       <div class="emptybar"></div>
       <div class="filledbar"></div>

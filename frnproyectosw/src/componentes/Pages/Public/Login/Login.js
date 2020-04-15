@@ -1,18 +1,21 @@
+import './login.css';
 import React, {Component} from 'react';
 import Page from '../../Page';
 import Field from '../../../Forms/Fields/Field';
 import {Actions} from '../../../Forms/Buttons/Button';
 import {emailRegex , emptyRegex} from '../../../Forms/Validators/Validators';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import {paxios, setLocalStorage} from '../../../Utilities/Utilities';
 import {Redirect} from 'react-router-dom';
 export default class Login extends Component{
+
   /*
   1) Capturar los eventos de los botones
   2) Repasar el evento para capturar los datos del formulario
   3) Validaciones de Datos y como desplegarlo en el componente
-  4) Usar axios para llegar al API. 
+  4) Usar axios para llegar al API.
    */
+
   constructor(){
     super();
     this.state = {
@@ -110,6 +113,7 @@ export default class Login extends Component{
     return (
       <Page pageTitle="Iniciar" auth={this.props.auth}>
         <h1 className="center">Iniciar Sesión</h1>
+<div className="jeje">
         <Field
           name="email"
           caption="Correo"
@@ -130,7 +134,14 @@ export default class Login extends Component{
           <button className="button-3 col-s-12" type="button" onClick={this.onClickLogin}>Entrar</button>
           <button><Link to="/signin">Crear Cuenta</Link></button>
         </Actions>
+        </div>
       </Page>
+
+
+
+
+
+
     );
   }
 }
